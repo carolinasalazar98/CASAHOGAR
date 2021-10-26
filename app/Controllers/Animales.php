@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+//se trae (importa) el modelo de datos.
+use App\Models\AnimalModelo;
+
 class Animales extends BaseController
 {
     public function index()
@@ -20,31 +23,35 @@ class Animales extends BaseController
         $tipo = $this->request->getPost("tipo");
 
 
-        //2.crear un arreglo asociativo con los datos punto1
-
-        /*$datos = array(
-            "nombre" => $nombre,
-            "fotografia" => $fotografia,
-            "edad" => $edad,
-            "precio" => $descripcion,
-            "tipo" => $tipo,
-        );
-
-        //imprimo el arreglo
-        print_r($datos);*/
-
-
-        //3 valido que llego
+        //2 valido que llego.
         if ($this->validate('animal')) {
 
-            echo ("TODO BIEN CUCHO");
-            //ruta para guardar datos en la BD
+            //se organizan los datos d¿en un array 
+            //los naranjados (claves) deben coincidir
+            //con el nombre de las columnas de BD
+            $datos = array(
+                "nombre" => $nombre,
+                "fotografia" => $fotografia,
+                "edad" => $edad,
+                "descripcion" => $descripcion,
+                "tipo" => $tipo,
+            );
+            //4 intentamos grabar los datos en BD
+
+            try {
+                $modelo = new AnimalModelo();
+                $modelo->insert($datos);
+                return redirect()->to(site_url('/animal/registro'))->with('mensaje', "Exito agragando Animal");
+            } catch (\Exception $error) {
+                return redirect()->to(site_url('/animal/registro'))->with('mensaje', $error->getMessage());
+            }
+
+            //imprimo el arreglo
+            print_r($datos);
         } else {
-            $mensaje = "tienes datos pendientes";
+            $mensaje = "tienes datos pendientes(Animal)";
 
             return redirect()->to(site_url('/animal/registro'))->with('mensaje', $mensaje);
-
-            //echo("tienes un error");
         }
     }
 }

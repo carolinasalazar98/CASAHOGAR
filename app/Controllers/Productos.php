@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+//se trae (importa) el modelo de datos.
+use App\Models\ProductoModelo;
+
 class Productos extends BaseController
 {
     public function index()
@@ -12,36 +15,47 @@ class Productos extends BaseController
     public function registrar()
     {
         //1.variables  peticion REQUIRE  recibo todo los datos enviados desde el formulario.
-        //lo ue tengo entregetPost(" ")  es el name que puse a cada input.
+        //lo ue tengo entre getPost(" ")  es el name que puse a cada input.
         $productos = $this->request->getPost("productos");
         $fotografia = $this->request->getPost("fotografia");
         $precio = $this->request->getPost("precio");
         $descripcion = $this->request->getPost("descripcion");
         $tipo = $this->request->getPost("tipo");
 
-        //3 valido que llego
+        //2 valido que llego
         if ($this->validate('producto')) {
 
-            echo ("TODO BIEN CUCHO");
-            //ruta para guardar datos en la BD
+            //se organizan los datos d¿en un array 
+            //los naranjados (claves) deben coincidir
+            //con el nombre de las columnas de BD
+            $datos = array(
+                "producto" => $productos,
+                "foto" => $fotografia,
+                "precio" => $precio,
+                "descripcion" => $descripcion,
+                "tipo" => $tipo,
+            );
+
+            //4 intentamos grabar los datos en BD
+
+            try {
+                $modelo = new ProductoModelo();
+                $modelo->insert($datos);
+                return redirect()->to(site_url('/productos/registro'))->with('mensaje', "Exito agragando el producto");
+            } catch (\Exception $error) {
+                return redirect()->to(site_url('/productos/registro'))->with('mensaje', $error->getMessage());
+            }
+
+            //imprimo el arreglo
+            print_r($datos);
         } else {
             $mensaje = "tienes datos pendientes";
 
             return redirect()->to(site_url('/productos/registro'))->with('mensaje', $mensaje);
-
-            //echo("tienes un error");
         }
 
         //2.crear un arreglo asociativo con los datos punto1
 
-        /*$datos=array(
-            "productos"=>$productos,
-            "fotografia"=>$fotografia,
-            "precio"=>$descripcion,
-            "tipo"=>$tipo,
-        );
 
-        //imprimo el arreglo
-        print_r($datos);*/
     }
 }
