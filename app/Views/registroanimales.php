@@ -97,8 +97,9 @@
           </div>
           <button class="btn btn-primary" type="submit">Registrar Animales</button>
       </div>
-      <div class="col-12 col-md-5 align-self-end">
+      <div class="col-12 col-md-5 align-self-end text-center">
         <img src="<?= base_url('public/img/perritos1.jpg') ?>" alt="imagen" class="img-fluid w-100">
+        <a href="<?= site_url('/animal/listado')?>" class="btn btn-primary">ver inventario Animales</a>
       </div>
     </div>
   </div>

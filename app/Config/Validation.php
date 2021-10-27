@@ -48,9 +48,9 @@ class Validation
     ];
 
     public $animal = [
-        'productos' => 'required',
+        'nombre' => 'required',
         'fotografia' => 'required',
-        'precio' => 'required',
+        'edad' => 'required',
         'descripcion' => 'required',
         'tipo' => 'required'
     ];

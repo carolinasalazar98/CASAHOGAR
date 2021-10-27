@@ -21,7 +21,7 @@ class Animales extends BaseController
         $edad = $this->request->getPost("edad");
         $descripcion = $this->request->getPost("descripcion");
         $tipo = $this->request->getPost("tipo");
-
+        
 
         //2 valido que llego.
         if ($this->validate('animal')) {
@@ -53,5 +53,17 @@ class Animales extends BaseController
 
             return redirect()->to(site_url('/animal/registro'))->with('mensaje', $mensaje);
         }
+    }
+
+    public function buscar()
+    {
+        try {
+            $modelo = new AnimalModelo();
+            $resultado=$modelo->findAll();
+
+        } catch (\Exception $error) {
+            return redirect()->to(site_url('/animal/registro'))->with('mensaje', $error->getMessage());
+        }
+        return view('listaAnimales');
     }
 }
