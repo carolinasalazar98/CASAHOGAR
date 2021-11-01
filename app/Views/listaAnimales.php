@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="<?= site_url('/Home') ?>">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -34,13 +34,46 @@
     </header>
 
     <main>
-        <div class="container">
+        <div class="container mt-5">
             <div class="row row cols-1 row-cols-md-5 g-4">
-                <?php ?>
-                <?php ?>
+                <?php foreach ($animales as $animal) : ?>
+                    <div class="col">
+                        <div class="card h-100 p-3">
+                            <img src="<?= $animal["fotografia"] ?>" class="card-img-top" alt="foto">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $animal["nombre"] ?></h5>
+                                <p class="card-text"><?= $animal["descripcion"] ?></p>
+                                <a data-bs-toggle="modal" data-bs-target="#confirmacion<?= $animal["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="far fa-trash-alt"></i></a>
+                                <a href="#" class="btn btn-primary fondoPrincipal"><i class="fas fa-edit"></i></i></a>
+                            </div>
+                        </div>
+                        <section>
+                            <div class="modal fade" id="confirmacion<?= $animal["id"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header fondoPrincipal text-white">
+                                            <h5 class="modal-title" id="exampleModalLabel">Casa Hogar</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>¿Estás seguro de elimiar este Animal?</p>
+                                            <p><?= $animal["id"] ?></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            <a href="<?= site_url('/animal/eliminar/' . $animal["id"]) ?>" class="btn btn-danger ">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                <?php endforeach ?>
             </div>
         </div>
     </main>
+
+
 
 
     <script src="https://kit.fontawesome.com/4ce3ac59dd.js" crossorigin="anonymous"></script>

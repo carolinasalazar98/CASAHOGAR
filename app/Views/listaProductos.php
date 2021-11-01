@@ -43,8 +43,8 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $producto["producto"] ?></h5>
                                 <p class="card-text"><?= $producto["precio"] ?></p>
-                                <a data-bs-toggle="modal" data-bs-target="#confirmacion<?= $producto["id"] ?>" href="#" class="btn btn-primary"><i class="far fa-trash-alt"></i></a>
-                                <a href="#" class="btn btn-primary"><i class="fas fa-edit"></i></i></a>
+                                <a data-bs-toggle="modal" data-bs-target="#confirmacion<?= $producto["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="far fa-trash-alt"></i></a>
+                                <a href="#" class="btn btn-primary fondoPrincipal"><i class="fas fa-edit"></i></i></a>
                             </div>
                         </div>
                         <section>

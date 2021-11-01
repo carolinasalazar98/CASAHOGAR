@@ -32,7 +32,17 @@
             <li class="nav-item">
               <a class="nav-link" href="<?= site_url('/animal/registro') ?>">Registro Animales</a>
             </li>
-          </ul>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Inventario
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="<?= site_url('/productos/listado') ?>" class="btn btn-primary"> Productos</a></li>
+                <li><a class="dropdown-item" href="<?= site_url('/animal/listado') ?>" class="btn btn-primary"> Animales</a></li>
+                <li>
+                </li>
+
+              </ul>
         </div>
       </div>
     </nav>
@@ -98,8 +108,7 @@
           <button class="btn btn-primary" type="submit">Registrar Animales</button>
       </div>
       <div class="col-12 col-md-5 align-self-end text-center">
-        <img src="<?= base_url('public/img/perritos1.jpg') ?>" alt="imagen" class="img-fluid w-100">
-        <a href="<?= site_url('/animal/listado')?>" class="btn btn-primary">ver inventario Animales</a>
+        <img src="<?= base_url('public/img/animales.jpg') ?>" alt="imagen" class="img-fluid w-100">
       </div>
     </div>
   </div>
