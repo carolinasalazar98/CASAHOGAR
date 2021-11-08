@@ -40,6 +40,9 @@ $routes->get('/productos/listado', 'Productos::buscar');
 $routes->get('/animal/listado', 'Animales::buscar');
 $routes->delete('/productos/eliminar/(:num)', 'Productos::eliminar/$1');
 $routes->delete('/animal/eliminar/(:num)', 'Animales::eliminar/$1');
+$routes->post('/productos/editar/(:num)', 'Productos::editar/$1');
+$routes->post('/animal/editar/(:num)','Animales::editar/$1');
+
 
 
 

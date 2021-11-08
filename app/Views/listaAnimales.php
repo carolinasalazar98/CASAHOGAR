@@ -35,6 +35,7 @@
 
     <main>
         <div class="container mt-5">
+        <h3 class="fuente2 fw-bold text-center">INVENTARIO ANIMALES</h3>
             <div class="row row cols-1 row-cols-md-5 g-4">
                 <?php foreach ($animales as $animal) : ?>
                     <div class="col">
@@ -43,8 +44,9 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $animal["nombre"] ?></h5>
                                 <p class="card-text"><?= $animal["descripcion"] ?></p>
+                                <hr>
                                 <a data-bs-toggle="modal" data-bs-target="#confirmacion<?= $animal["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="far fa-trash-alt"></i></a>
-                                <a href="#" class="btn btn-primary fondoPrincipal"><i class="fas fa-edit"></i></i></a>
+                                <a data-bs-toggle="modal" data-bs-target="#editar<?= $animal["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="fas fa-edit"></i></i></a>
                             </div>
                         </div>
                         <section>
@@ -62,6 +64,40 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                             <a href="<?= site_url('/animal/eliminar/' . $animal["id"]) ?>" class="btn btn-danger ">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="modal fade" id="editar<?= $animal["id"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header fondoPrincipal text-white">
+                                            <h5 class="modal-title" id="exampleModalLabel">Casa Hogar</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-3 align-self-center">
+                                                    <img src="<?= $animal["fotografia"] ?>" alt="foto" class="img-fliud w-100">
+                                                </div>
+                                                <div class="col-9">
+                                                    <form action="<?= site_url('/animal/editar/' . $animal["id"]) ?>" method="POST">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Nombre</label>
+                                                            <input type="text" class="form-control" name="nombre" value="<?= $animal["nombre"] ?>">
+                                                        </div>
+                                                        
+                                                        <div class="mb-3">
+                                                            
+                                                            <label class="form-label">Edad</label>
+                                                            <input type="text" class="form-control" name="edad" value="<?= $animal["edad"] ?>">A<
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary fondoPrincipal">Editar</button>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

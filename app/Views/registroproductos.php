@@ -27,13 +27,13 @@
               <a class="nav-link active" aria-current="page" href="<?= site_url('/Home') ?>">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?= site_url('/productos/registro') ?>">Registro Productos</a>
+              <a class="nav-link active" href="<?= site_url('/productos/registro') ?>">Registro Productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?= site_url('/animal/registro') ?>">Registro Animales</a>
+              <a class="nav-link active" href="<?= site_url('/animal/registro') ?>">Registro Animales</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Inventario
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -92,7 +92,8 @@
           </div>
           <div class="mb-3">
             <select class="form-select" name="tipo">
-              <option value="1" selected>Perro</option>
+            <option value="1" selected>Tipo de animal</option>
+              <option value="2">Perro</option>
               <option value="2">Gato</option>
               <option value="3">Caballo</option>
               <option value="4">Ave</option>

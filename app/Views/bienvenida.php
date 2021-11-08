@@ -28,13 +28,12 @@
 							<a class="nav-link active" aria-current="page" href="#">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="<?= site_url('/productos/registro') ?>">Registro Productos</a>
+							<a class="nav-link active"   href="<?= site_url('/productos/registro') ?>">Registro Productos</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="<?= site_url('/animal/registro') ?>">Registro Animales</a>
+						<li class="nav-item  ">
+							<a class="nav-link active" href="<?= site_url('/animal/registro') ?>">Registro Animales</a>
 						</li>
-						
-							</ul>
+					</ul>
 				</div>
 			</div>
 		</nav>
@@ -82,23 +81,23 @@
 		</div>
 		<div class="row d-flex justify-content-center">
 			<div class="col-1">
-				<img class="img-fluid w-100" src="<?= base_url('public/img/cat-icon.png') ?>" alt="foto4">
+				<img class="img-fluid w-100" src="<?= base_url('public/img/cat-icon.png') ?>" alt="">
 				<h3>Gato</h3>
 			</div>
 			<div class="col-1">
-				<img class="img-fluid w-100" src="<?= base_url('public/img/bird-icon.png') ?>" alt="foto5">
+				<img class="img-fluid w-100" src="<?= base_url('public/img/bird-icon.png') ?>" alt="">
 				<h3>Aves</h3>
 			</div>
 			<div class="col-1">
-				<img class="img-fluid w-100" src="<?= base_url('public/img/dog-icon.png') ?>" alt="foto6">
+				<img class="img-fluid w-100" src="<?= base_url('public/img/dog-icon.png') ?>" alt="">
 				<h3>Perros</h3>
 			</div>
 			<div class="col-1">
-				<img class="img-fluid w-100" src="<?= base_url('public/img/reptile-icon.png') ?>" alt="foto7">
+				<img class="img-fluid w-100" src="<?= base_url('public/img/reptile-icon.png') ?>" alt="">
 				<h3>Reptiles</h3>
 			</div>
 			<div class="col-1">
-				<img class="img-fluid w-100" src="<?= base_url('public/img/horse-icon.png') ?>" alt="foto8">
+				<img class="img-fluid w-100" src="<?= base_url('public/img/horse-icon.png') ?>" alt="">
 				<h3>Caballos</h3>
 			</div>
 		</div>
