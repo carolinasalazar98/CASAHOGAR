@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ANIMALANDIA</title>
     <link rel="stylesheet" href="<?php echo (base_url('public/styles/estilos.css')) ?>">
+    <link rel="icon" href="<?= base_url('public/img/huella.png') ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +28,16 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="<?= site_url('/Home') ?>">Home</a>
                         </li>
-                    </ul>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Inventario
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="<?= site_url('/productos/listado') ?>" class="btn btn-primary"> Productos</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url('/animal/listado') ?>" class="btn btn-primary"> Animales</a></li>
+                                <li>
+                                </li>
+                            </ul>
                 </div>
             </div>
         </nav>
@@ -35,7 +45,7 @@
 
     <main>
         <div class="container mt-5">
-        <h3 class="fuente2 fw-bold text-center">INVENTARIO ANIMALES</h3>
+            <h3 class="fuente2 fw-bold text-center">INVENTARIO ANIMALES</h3>
             <div class="row row cols-1 row-cols-md-5 g-4">
                 <?php foreach ($animales as $animal) : ?>
                     <div class="col">
@@ -43,10 +53,11 @@
                             <img src="<?= $animal["fotografia"] ?>" class="card-img-top" alt="foto">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $animal["nombre"] ?></h5>
+                                <p class="card-text"><?= $animal["edad"] ?></p>
                                 <p class="card-text"><?= $animal["descripcion"] ?></p>
                                 <hr>
                                 <a data-bs-toggle="modal" data-bs-target="#confirmacion<?= $animal["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="far fa-trash-alt"></i></a>
-                                <a data-bs-toggle="modal" data-bs-target="#editar<?= $animal["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="fas fa-edit"></i></i></a>
+                                <a data-bs-toggle="modal" data-bs-target="#editar<?= $animal["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="fas fa-edit"></i></a>
                             </div>
                         </div>
                         <section>
@@ -63,46 +74,47 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <a href="<?= site_url('/animal/eliminar/' . $animal["id"]) ?>" class="btn btn-danger ">Eliminar</a>
+                                            <a href="<?= site_url('/animales/eliminar/' . $animal["id"]) ?>" class="btn btn-danger ">Eliminar</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
                         <section>
-                            <div class="modal fade" id="editar<?= $animal["id"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header fondoPrincipal text-white">
-                                            <h5 class="modal-title" id="exampleModalLabel">Casa Hogar</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-3 align-self-center">
-                                                    <img src="<?= $animal["fotografia"] ?>" alt="foto" class="img-fliud w-100">
-                                                </div>
-                                                <div class="col-9">
-                                                    <form action="<?= site_url('/animal/editar/' . $animal["id"]) ?>" method="POST">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Nombre</label>
-                                                            <input type="text" class="form-control" name="nombre" value="<?= $animal["nombre"] ?>">
-                                                        </div>
-                                                        
-                                                        <div class="mb-3">
-                                                            
-                                                            <label class="form-label">Edad</label>
-                                                            <input type="text" class="form-control" name="edad" value="<?= $animal["edad"] ?>">A<
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary fondoPrincipal">Editar</button>
-                                                    </form>
+                            <section>
+                                <div class="modal fade" id="editar<?= $animal["id"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header fondoPrincipal text-white">
+                                                <h5 class="modal-title" id="exampleModalLabel">Casa Hogar</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-3 align-self-center">
+                                                        <img src="<?= $animal["fotografia"] ?>" alt="foto" class="img-fliud w-100">
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <form action="<?= site_url('/animal/editar/' . $animal["id"]) ?>" method="POST">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Nombre</label>
+                                                                <input type="text" class="form-control" name="nombre" value="<?= $animal["nombre"] ?>">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Edad</label>
+                                                                <input type="text" class="form-control" name="edad" value="<?= $animal["edad"] ?>">
+                                                            </div>
+                                                            <hr>
+                                                            <button type="submit" class="btn btn-primary fondoPrincipal">Editar</button>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
                     </div>
                 <?php endforeach ?>
             </div>

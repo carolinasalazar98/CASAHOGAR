@@ -15,7 +15,7 @@ class Animales extends BaseController
     public function registrar()
     {
         //1.variables  peticion REQUIRE  recibo todo los datos enviados desde el formulario.
-        //lo ue tengo entregetPost(" ")  es el name que puse a cada input.
+        //lo que tengo entregetPost(" ")  es el name que puse a cada input.
         $nombre = $this->request->getPost("nombre");
         $fotografia = $this->request->getPost("fotografia");
         $edad = $this->request->getPost("edad");
@@ -26,7 +26,7 @@ class Animales extends BaseController
         //2 valido que llego.
         if ($this->validate('animal')) {
 
-            //se organizan los datos d¿en un array 
+            //se organizan los datos en un array 
             //los naranjados (claves) deben coincidir
             //con el nombre de las columnas de BD
             $datos = array(
@@ -67,6 +67,7 @@ class Animales extends BaseController
         }
         return view('listaAnimales');
     }
+
     public function eliminar($id)
     {
 
@@ -78,6 +79,7 @@ class Animales extends BaseController
             return redirect()->to(site_url('/animal/registro'))->with('mensaje', $error->getMessage());
         }
     }
+
     public function editar($id)
     {
         //RECIBO DATOS.
@@ -106,5 +108,6 @@ class Animales extends BaseController
             return redirect()->to(site_url('/animal/registro'))->with('mensaje', $error->getMessage());
         }
     }
+
 }
-//}
+

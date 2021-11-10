@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ANIMALANDIA</title>
     <link rel="stylesheet" href="<?php echo (base_url('public/styles/estilos.css')) ?>">
+    <link rel="icon" href="<?= base_url('public/img/huella.png') ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,8 +27,16 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="<?= site_url('/Home') ?>">Home</a>
                         </li>
-
-                    </ul>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Inventario
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="<?= site_url('/productos/listado') ?>" class="btn btn-primary"> Productos</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url('/animal/listado') ?>" class="btn btn-primary"> Animales</a></li>
+                                <li>
+                                </li>
+                            </ul>
                 </div>
             </div>
         </nav>
@@ -35,7 +44,7 @@
 
     <main>
         <div class="container mt-5">
-        <h3 class="fuente2 fw-bold text-center">INVENTARIO PRODUCTOS</h3>
+            <h3 class="fuente2 fw-bold text-center">INVENTARIO PRODUCTOS</h3>
             <div class="row row cols-1 row-cols-md-5 g-4">
                 <?php foreach ($productos as $producto) : ?>
                     <div class="col">
@@ -83,7 +92,7 @@
                                                     <img src="<?= $producto["foto"] ?>" alt="foto" class="img-fliud w-100">
                                                 </div>
                                                 <div class="col-9">
-                                                    <form action="<?= site_url('/productos/editar/'.$producto["id"]) ?>" method="POST">
+                                                    <form action="<?= site_url('/productos/editar/' . $producto["id"]) ?>" method="POST">
                                                         <div class="mb-3">
                                                             <label class="form-label">Precio</label>
                                                             <input type="number" class="form-control" name="precio" value="<?= $producto["precio"] ?>">
@@ -92,7 +101,9 @@
                                                             <label class="form-label">Nombre</label>
                                                             <input type="text" class="form-control" name="productos" value="<?= $producto["producto"] ?>">
                                                         </div>
+                                                        <hr>
                                                         <button type="submit" class="btn btn-primary fondoPrincipal">Editar</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                                     </form>
                                                 </div>
                                             </div>
