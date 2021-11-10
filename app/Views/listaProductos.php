@@ -55,7 +55,7 @@
                                 <p class="card-text"><?= $producto["precio"] ?></p>
                                 <hr>
                                 <a data-bs-toggle="modal" data-bs-target="#confirmacion<?= $producto["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="far fa-trash-alt"></i></a>
-                                <a data-bs-toggle="modal" data-bs-target="#editar<?= $producto["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="fas fa-edit"></i></i></a>
+                                <a data-bs-toggle="modal" data-bs-target="#editar<?= $producto["id"] ?>" href="#" class="btn btn-primary boton"><i class="fas fa-edit"></i></i></a>
                             </div>
                         </div>
                         <section>
@@ -71,7 +71,7 @@
                                             <p><?= $producto["id"] ?></p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-secondary boton" data-bs-dismiss="modal">Cerrar</button>
                                             <a href="<?= site_url('/productos/eliminar/' . $producto["id"]) ?>" class="btn btn-danger">Eliminar</a>
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                                         </div>
                                                         <hr>
                                                         <button type="submit" class="btn btn-primary fondoPrincipal">Editar</button>
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                        <button type="button" class="btn btn-secondary boton" data-bs-dismiss="modal">Cerrar</button>
                                                     </form>
                                                 </div>
                                             </div>

@@ -1,43 +1,39 @@
-.fondo{
-    background-color: #07A1E1 !important;
+.fondo {
+  background-color: #f74799 !important;
 }
-.fuente2{
-    font-family: 'Merienda', cursive;
-}
-
-.fondoPrincipal{
-    background-color: #07A1E1   !important;
+.fuente2 {
+  font-family: "Merienda", cursive;
 }
 
-.boton{
-    background-color:#07A1E1 !important;
-    color:white !important;
+.fondoPrincipal {
+  background-color: #f74799 !important;
 }
 
-.fondoDos{
-     background-color: #e7e4e7;
-}
-.zoomin .col-1:hover .img {
-    -webkit-transform:scale(1.3);transform:scale(1.3) !important;
+.boton {
+  background-color: #333333 !important;
+  color: white !important;
 }
 
-.zoom{
-    transition: transform .2s;
+.fondoDos {
+  background-color: #e7e4e7;
+}
+
+.zoom {
+  transition: transform 0.2s;
 }
 
 .zoom:hover {
   transform: scale(1.3);
 }
 
-.fondoAdopcion{
-    -webkit-filter: grayscale(100%);
-    background-image: url('../img/cachorros1.jpg');
-    background-attachment: fixed;
-    height: 450px;
-    filter: grayscale(100%);
+.fondoAdopcion {
+  -webkit-filter: grayscale(100%);
+  background-image: url("../img/cachorros1.jpg");
+  background-attachment: fixed;
+  height: 450px;
+  filter: grayscale(100%);
 }
-
-.boton{
-    background-color:#07A1E1  !important;
-    color:white !important;
+.zoomin .col-1:hover img {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3) !important;
 }

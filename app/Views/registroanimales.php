@@ -103,7 +103,7 @@
               <option value="5">Reptíl</option>
             </select>
           </div>
-          <button class="btn btn-primary" type="submit">Registrar Animales</button>
+          <button class="btn btn-primary boton" type="submit">Registrar Animales</button>
       </div>
       <div class="col-12 col-md-5 align-self-end text-center">
         <img src="<?= base_url('public/img/animales.jpg') ?>" alt="imagen" class="img-fluid w-100">

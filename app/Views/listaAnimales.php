@@ -57,7 +57,7 @@
                                 <p class="card-text"><?= $animal["descripcion"] ?></p>
                                 <hr>
                                 <a data-bs-toggle="modal" data-bs-target="#confirmacion<?= $animal["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="far fa-trash-alt"></i></a>
-                                <a data-bs-toggle="modal" data-bs-target="#editar<?= $animal["id"] ?>" href="#" class="btn btn-primary fondoPrincipal"><i class="fas fa-edit"></i></a>
+                                <a data-bs-toggle="modal" data-bs-target="#editar<?= $animal["id"] ?>" href="#" class="btn btn-primary boton"><i class="fas fa-edit"></i></a>
                             </div>
                         </div>
                         <section>
@@ -73,8 +73,8 @@
                                             <p><?= $animal["id"] ?></p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <a href="<?= site_url('/animales/eliminar/' . $animal["id"]) ?>" class="btn btn-danger ">Eliminar</a>
+                                            <button type="button" class="btn btn-secondary boton" data-bs-dismiss="modal">Cerrar</button>
+                                            <a href="<?= site_url('/animales/eliminar/' . $animal["id"]) ?>" class="btn btn-danger fondoPrincipal">Eliminar</a>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@
                                                             </div>
                                                             <hr>
                                                             <button type="submit" class="btn btn-primary fondoPrincipal">Editar</button>
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                            <button type="button" class="btn btn-secondary boton" data-bs-dismiss="modal">Cerrar</button>
                                                         </form>
                                                     </div>
                                                 </div>
